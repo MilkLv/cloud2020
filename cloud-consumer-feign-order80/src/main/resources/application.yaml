@@ -1,0 +1,23 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+
+feign:
+  client:
+    config:
+      default:
+      #这里填具体的服务名称（也可以填default，表示对所有服务生效）
+        #connectTimeout和readTimeout这两个得一起配置才会生效
+        connectTimeout: 5000
+        readTimeout: 5000
+        LoggerLevel: FULL
+logging:
+  level:
+    #feign日志以什么级别监控哪个接口
+    com.strive.springcloud.service.PaymentFeignService: debug
