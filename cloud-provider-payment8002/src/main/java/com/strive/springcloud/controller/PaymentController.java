@@ -4,6 +4,7 @@ import com.strive.springcloud.entities.CommonResult;
 import com.strive.springcloud.entities.Payment;
 import com.strive.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -20,6 +21,8 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    @Value("${server.port}")
+    private String serverPort;
     /**
      * 新增
      * @param payment
@@ -48,9 +51,14 @@ public class PaymentController {
         log.info("******查询结果：{}",payment);
 
         if (payment!=null){
-            return new CommonResult(200,"查询成功了",payment);
+            return new CommonResult(200,"查询成功了,serverPort:"+serverPort,payment);
         }else {
             return new CommonResult(444,"没有对应记录，查询id："+id,null);
         }
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
     }
 }
