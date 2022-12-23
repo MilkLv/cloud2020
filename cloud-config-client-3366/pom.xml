@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-config-client-3355</artifactId>
+    <artifactId>cloud-config-client-3366</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -43,7 +43,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <!--添加消息总线rabbitMQ支持-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
