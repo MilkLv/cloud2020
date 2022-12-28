@@ -38,6 +38,7 @@ public class OrderController {
     public String getIdBySnowFlake(){
         ExecutorService pool = Executors.newFixedThreadPool(5);
 
+
         for (int i = 0; i <= 20; i++) {
             pool.submit(()->{
                 System.out.println(idGeneratorSnowflake.snowflakeId());
